@@ -10,6 +10,7 @@
 
 #include <vector>
 #include <string>
+#include <fstream>
 #include <unordered_set>
 
 using namespace std;
@@ -23,6 +24,11 @@ public:
 
    friend ostream& operator << (ostream&, const JsonElem&);
 
+   string getKey();
+
+   int getValue();
+
+
 private:
    string  _key;   // DO NOT change this definition. Use it to store key.
    int     _value; // DO NOT change this definition. Use it to store value.
@@ -33,6 +39,20 @@ class Json
 public:
    // TODO: define constructor & member functions on your own
    bool read(const string&);
+
+   void print();
+
+   long long sum();
+
+   double ave();
+
+   JsonElem min();
+
+   JsonElem max();
+
+   bool empty();
+
+   void add(string key, int value);
 
 private:
    vector<JsonElem>       _obj;  // DO NOT change this definition.
